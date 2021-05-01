@@ -1,0 +1,19 @@
+.app{
+    position: relative;
+    height: 800px;
+}
+
+.swiper-container{
+    width: 500px;
+
+    & li,
+    & ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.swipper-wrapper{
+/*    padding-inline-start: 0;*/
+}

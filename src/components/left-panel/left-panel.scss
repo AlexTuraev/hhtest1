@@ -1,0 +1,107 @@
+.left-panel{
+    height: 100vh;
+    display: inline;
+
+    &__header{
+        display: flex;
+        justify-content:space-around;
+        padding: 5px;
+        width: 100%;
+    }
+
+    &__textarea{
+        min-width: 70%;
+        max-width: 70%;
+        min-height: 10vh;
+        max-height: 10vh;
+        padding: 5px;
+    }
+
+    &__textarea:focus,
+    &__textarea:active{
+        outline: none;
+    }
+
+    &__send-btn{
+        width: 10%;
+        height: 6vh;
+    }
+    
+    &__texts-block{
+        height: 80vh;
+        max-height: 80vh;
+        overflow-y: auto;
+        word-wrap: break-word;
+    }
+
+    &__li:last-child &__text--animation:nth-child(even){
+        display: inline-block;
+        animation: anim 2s ease-in-out 2;
+    }
+
+    &__li:last-child &__text--animation:nth-child(odd){
+        display: inline-block;
+        animation: anim1 2s ease-in-out 2;
+    }
+
+    @keyframes anim{
+        0%{
+            transform: translateY(-20px);
+            color: chocolate;
+        }
+        40%{
+            transform: translateY(-16px);
+        }
+        65%{
+            transform: translateY(-12px);
+        }
+        82%{
+            transform: translateY(-6px);
+            color: cyan;
+        }
+        25%,
+        55%,
+        75%,
+        87% {
+            transform: translateY(0px);
+            animation-timing-function: ease-out;
+        }
+        100%{
+            transform: translateY(0px);
+        }
+    }
+
+    @keyframes anim1{
+        0%{
+            transform: translateY(20px);
+            background-color: chartreuse;
+        }
+        40%{
+            transform: translateY(16px);
+            background-color: chocolate;
+        }
+        65%{
+            transform: translateY(12px);
+        }
+        82%{
+            transform: translateY(6px);
+        }
+        25%,
+        55%,
+        75%,
+        87% {
+            transform: translateY(0px);
+            animation-timing-function: ease-out;
+        }
+        100%{
+            transform: translateY(0px);
+        }
+    }
+
+    &__ul,
+    &__li{
+        padding: 0;
+        margin: 0;
+        padding-inline-start: 0;
+    }
+}
