@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 //import { SwiperSlide } from 'swiper/react';
 
 import './left-panel.scss';
@@ -9,6 +9,8 @@ const LeftPanel = () =>{
     const [texts, setTexts] = useState([]);
     const [keyId, setKeyId] = useState(0);
 
+    const refBlockTexts = useRef(null);
+    
     const handlerChangeTextArea =(e) =>{
         setTextValue(e.target.value);
     }
@@ -45,6 +47,11 @@ const LeftPanel = () =>{
         setKeyId(keyId+2);
     }
 
+    useEffect(()=>{
+        refBlockTexts.current.scrollTo({top: (refBlockTexts.current.scrollHeight-refBlockTexts.current.offsetHeight), behavior: "smooth"});
+        //refBlockTexts.current.lastChild && refBlockTexts.current.lastChild.scrollIntoView({block: "end", behavior: "smooth"});
+    }, [texts]);
+
     const handlerClickSend = () =>{
         if (textValue === '') return;
         addNewRecordToTexts(textValue);
@@ -57,7 +64,7 @@ const LeftPanel = () =>{
                 <button onClick={handlerClickSend} className='left-panel__send-btn'>Send</button>
             </header>
 
-            <div className='left-panel__texts-block'>
+            <div className='left-panel__texts-block' ref={refBlockTexts}>
                 <ul className='left-panel__ul'>
                     {texts}
                 </ul>

@@ -25,23 +25,25 @@
     &__send-btn{
         width: 10%;
         height: 6vh;
+        cursor: pointer;
     }
     
     &__texts-block{
-        height: 80vh;
-        max-height: 80vh;
+        margin-top: 3vh;
+        height: 77vh;
+        max-height: 77vh;
         overflow-y: auto;
         word-wrap: break-word;
     }
 
     &__li:last-child &__text--animation:nth-child(even){
         display: inline-block;
-        animation: anim 2s ease-in-out 2;
+        animation: anim 2s ease-in-out 1;
     }
 
     &__li:last-child &__text--animation:nth-child(odd){
         display: inline-block;
-        animation: anim1 2s ease-in-out 2;
+        animation: anim1 2s ease-in-out 1;
     }
 
     @keyframes anim{
@@ -74,17 +76,17 @@
     @keyframes anim1{
         0%{
             transform: translateY(20px);
-            background-color: chartreuse;
+            color: red;
         }
         40%{
             transform: translateY(16px);
-            background-color: chocolate;
         }
         65%{
             transform: translateY(12px);
         }
         82%{
             transform: translateY(6px);
+            color: chocolate;
         }
         25%,
         55%,
